@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0
+
+
 document.getElementById('rock').addEventListener('click',function(){
     let computer = computerChoice();
     let outcome = result('rock', computer);
@@ -5,6 +9,15 @@ document.getElementById('rock').addEventListener('click',function(){
     document.getElementById('computerChoice').innerText = 'Computer chooses '
     + computer;
     document.getElementById('result').innerText = outcome;
+
+    if(outcome === 'You win!'){
+        playerScore++;
+    }else if (outcome === 'You lose!'){
+        computerScore++;
+    }
+
+    document.getElementById('player').innerText = playerScore;
+    document.getElementById('computer').innerText = computerScore;
 
 });
 
@@ -16,6 +29,15 @@ document.getElementById('paper').addEventListener('click',function(){
     + computer;
     document.getElementById('result').innerText = outcome;
 
+    if(outcome === 'You win!'){
+        playerScore++;
+    }else if (outcome === 'You lose!'){
+        computerScore++;
+    }
+
+    document.getElementById('player').innerText = playerScore;
+    document.getElementById('computer').innerText = computerScore;
+
 });
 
 document.getElementById('scissors').addEventListener('click',function(){
@@ -26,6 +48,15 @@ document.getElementById('scissors').addEventListener('click',function(){
     + computer;
     document.getElementById('result').innerText = outcome;
 
+    if(outcome === 'You win!'){
+        playerScore++;
+    }else if (outcome === 'You lose!'){
+        computerScore++;
+    }
+
+    document.getElementById('player').innerText = playerScore;
+    document.getElementById('computer').innerText = computerScore;
+
 });
 
 document.getElementById('nextRound').addEventListener('click',function(){
@@ -33,6 +64,12 @@ document.getElementById('nextRound').addEventListener('click',function(){
     document.getElementById('computerChoice').innerText = '';
 });
 
+document.getElementById('reset').addEventListener('click',function(){
+    document.getElementById('player').innerText = '0';
+    document.getElementById('computer').innerText = '0';
+    document.getElementById('result').innerText = '';
+    document.getElementById('computerChoice').innerText = '';
+})
 
 function computerChoice(){
     const choices = ['rock','paper','scissors'];
